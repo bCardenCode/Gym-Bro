@@ -16,13 +16,14 @@ struct AppHome: View {
                 NavigationLink(destination: AddWorkoutView()) {
                    BasicNavLinkLabel(title: addWorkoutTitle)
                 }
-                NavigationLink(destination: ViewWorkoutsView(workouts: mockWorkouts)) {
+                NavigationLink(destination: ViewWorkoutsView()) {
                     BasicNavLinkLabel(title: viewWorkoutsTitle)
                 }
                 Spacer()
             }
             .navigationTitle(appHomeTitle)
         }
+        .environmentObject(manager)
     }
 }
 

@@ -12,12 +12,12 @@ struct ViewWorkoutPage: View {
     
     var body: some View {
         ScrollView {
-            ForEach(workout.exercises ?? [Exercise]()) { exercise in
-                ExpandableExerciseRow(exercise: exercise)
+            ForEach($workout.exercises) { $exercise in
+                ExpandableExerciseRow(exercise: $exercise)
             }
-            .padding(.horizontal)
+        .padding(.horizontal)
         }
-        .navigationTitle(workout.name ?? workout.split ?? noWktName)
+        .navigationTitle(workout.getName())
     }
     
 }

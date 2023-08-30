@@ -28,9 +28,9 @@ struct Exercise: Identifiable {
         self.rating = rating
     }
     
-    init(sets: [Set]) {
+    init(name: String, sets: [Set]) {
         self.sets = sets
-        self.exercise = noExercise
+        self.exercise = name
     }
     
     

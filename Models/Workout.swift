@@ -9,14 +9,14 @@ import Foundation
 
 struct Workout: Identifiable {
     var id = UUID()
-    var exercises: [Exercise]?
+    var exercises: [Exercise]
     var name: String?
     var rating: Int?
     var split: String?
     var date: String?
     
     init(
-        exercises: [Exercise]? = [Exercise](),
+        exercises: [Exercise] = [Exercise](),
         name: String? = nil,
         rating: Int? = nil,
         split: String? = nil,
@@ -36,9 +36,7 @@ struct Workout: Identifiable {
         return name
     }
     
-    mutating func addExercise() {
-        if exercises != nil {
-            exercises?.append(Exercise(sets: [Set()]))
-        }
+    mutating func addExercise(name: String) {
+        exercises.append(Exercise(name: name, sets: [Set()]))
     }
 }

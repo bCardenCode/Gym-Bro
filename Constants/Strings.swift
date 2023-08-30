@@ -11,6 +11,7 @@ import SwiftUI
 let appHomeTitle = "Gym Bro"
 let addWorkoutTitle = "Add Workout"
 let viewWorkoutsTitle = "View Workouts"
+let chooseExercise = "Choose Exercise"
 let divider = "|"
 let navigation = "Navigation"
 let expandable  = "Expandable"

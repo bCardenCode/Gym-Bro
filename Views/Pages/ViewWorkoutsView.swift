@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct ViewWorkoutsView: View {
-    @State var workouts: [Workout]
+    @EnvironmentObject var manager: DataManager
+    
     var body: some View {
         ScrollView {
-            ForEach(workouts) { workout in
+            ForEach(manager.workouts) { workout in
                 NavigationLink(destination: ViewWorkoutPage(workout: workout)) {
                     WorkoutNavLink(workout: workout)
                 }
@@ -26,7 +27,8 @@ struct ViewWorkoutsView: View {
 struct ViewWorkoutsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            ViewWorkoutsView(workouts: [mockWorkout1, mockWorkout2])
+            ViewWorkoutsView()
+                .environmentObject(DataManager(mock: true))
         }
     }
 }

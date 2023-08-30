@@ -8,18 +8,18 @@
 import SwiftUI
 
 struct SetInputRow: View {
-    @State var set: Set
+    @Binding var set: Set
     @State var border: Bool = true
     @State var weight: Int?
     @State var reps: Int?
-    var width: RowWidth = .full
-    var height: RowHeight = .large
+    var width: RowWidth = .subrow
+    var height: RowHeight = .medium
     
     var body: some View {
         ZStack {
             if border {
                 RoundedRectangle(cornerRadius: 10)
-                    .stroke(primaryColor, lineWidth: 4)
+                    .stroke(secondaryColor, lineWidth: 4)
             } else {
                 EmptyView()
             }
@@ -49,6 +49,6 @@ struct SetInputRow: View {
 struct SetInputRow_Previews: PreviewProvider {
     @State static var set: Set = Set()
     static var previews: some View {
-        SetInputRow(set: set)
+        SetInputRow(set: $set)
     }
 }

@@ -34,7 +34,7 @@ struct WorkoutNavLink: View {
                 .frame(width: RowWidthPortions.half(width).val, alignment: .leading)
                 HStack {
                     Text(divider)
-                    Text("\(workout.exercises?.count ?? -1) Exercises")
+                    Text("\(workout.exercises.count) Exercises")
                     Spacer()
                     Image(systemName: navIcon)
                         .foregroundColor(.blue)

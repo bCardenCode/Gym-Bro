@@ -9,6 +9,7 @@ import SwiftUI
 
 enum RowWidth {
     case full
+    case subrow
     case half
     
     var val: CGFloat {
@@ -16,6 +17,8 @@ enum RowWidth {
         switch self {
         case .full:
             return 350
+        case .subrow:
+            return 320
         case .half:
             return 200
         }

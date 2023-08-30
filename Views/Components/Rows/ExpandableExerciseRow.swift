@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ExpandableExerciseRow: View {
     @State var border: Bool = true
-    @State var exercise: Exercise
+    @Binding var exercise: Exercise
     @State var width: RowWidth = .full
     @State var height: RowHeight = .medium
     @State var showRows: Bool = false
@@ -55,7 +55,7 @@ struct ExpandableExerciseRow: View {
             .buttonStyle(.plain)
             
             if showRows && input {
-                SetInputList(sets: exercise.sets)
+                SetInputList(sets: $exercise.sets)
             } else if showRows {
                 ForEach(exercise.sets) { set in
                     DisplaySetRow(set: set, width: .half)
@@ -68,7 +68,9 @@ struct ExpandableExerciseRow: View {
 }
 
 struct ExpandableExerciseRow_Previews: PreviewProvider {
+    @State static var exercise = Exercise(sets: mockSets1, exercise: benchPress, rating: 9)
+    
     static var previews: some View {
-        ExpandableExerciseRow(exercise: mockExercise1, input: true)
+        ExpandableExerciseRow(exercise: $exercise, input: true)
     }
 }

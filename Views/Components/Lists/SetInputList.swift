@@ -8,24 +8,33 @@
 import SwiftUI
 
 struct SetInputList: View {
-    @State var sets: [Set]
+    @Binding var sets: [Set]
     @State var border: Bool = true
     
     var body: some View {
         VStack {
-            ForEach(sets) { set in
-                SetInputRow(set: set)
+            ForEach($sets) { $set in
+                SetInputRow(set: $set)
             }
-            Button("Add Set") {
-                sets.append(Set())
+            HStack {
+                Button("Remove Set", role: .destructive) {
+                    sets.remove(at: sets.count - 1)
+                }
+                .buttonStyle(.borderedProminent)
+                Button("Add Set") {
+                    sets.append(Set())
+                }
+                .buttonStyle(.borderedProminent)
             }
-            .buttonStyle(.borderedProminent)
+            
         }
     }
 }
 
 struct SetInputList_Previews: PreviewProvider {
+    @State static var sets = [Set(), Set()]
+    
     static var previews: some View {
-        SetInputList(sets: mockSets1)
+        SetInputList(sets: $sets)
     }
 }
