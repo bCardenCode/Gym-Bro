@@ -21,6 +21,8 @@ struct AddWorkoutView: View {
     var body: some View {
         VStack {
             AddWorkoutHeader(name: $name, split: $split, workout: $workout)
+            Divider()
+                .frame(width: RowWidth.full.val)
             
             if workout.exercises.count == 0 {
                 Spacer()
@@ -31,7 +33,7 @@ struct AddWorkoutView: View {
                     .padding(.horizontal)
             } else {
                 ForEach($workout.exercises) { $exercise in
-                    ExpandableExerciseRow(exercise: $exercise, showRows: true, input: true)
+                    ExpandableExerciseRow(border: false, exercise: $exercise, showRows: true, input: true)
                 }
             }
             
@@ -120,13 +122,19 @@ private struct AddWorkoutHeader: View {
                 .padding(.trailing, 20)
             
         }
-        HStack {
-            TextField("Enter name", text: $name)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .frame(width: RowWidthPortions.half(.full).val)
-                .onChange(of: name) { name in
-                    workout.name = name
-                }
+        HStack(spacing: 15) {
+            ZStack {
+                RoundedRectangle(cornerRadius: 5)
+                    .stroke(Color(UIColor.lightGray), lineWidth: 1)
+                    .opacity(0.25)
+                TextField("Enter name", text: $name)
+                    .onChange(of: name) { name in
+                        workout.name = name
+                    }
+                    .padding(.horizontal, 10)
+            }
+            .frame(width: RowWidthPortions.half(.full).val, height: RowHeight.medium.val)
+
             ZStack {
                 RoundedRectangle(cornerRadius: 5)
                     .stroke(Color(UIColor.lightGray), lineWidth: 1)
@@ -137,7 +145,7 @@ private struct AddWorkoutHeader: View {
                     }
                 }
             }
-            .frame(width: RowWidthPortions.half(.full).val)
+            .frame(width: RowWidthPortions.half(.full).val, height: RowHeight.medium.val)
         }
         .padding(.bottom, 10)
         .frame(height: RowHeight.small.val)

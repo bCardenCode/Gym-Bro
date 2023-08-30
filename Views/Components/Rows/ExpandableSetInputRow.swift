@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ExpandableSetInputRow: View {
+    @EnvironmentObject var manager: DataManager
     @State var border: Bool = true
     @State var exercise: Exercise
     @State var width: RowWidth = .full
@@ -21,11 +22,13 @@ struct ExpandableSetInputRow: View {
                     showRows = !showRows
                 }, label: {
                     ZStack {
-                        if border {
+                        if manager.designSettings.border {
                             RoundedRectangle(cornerRadius: 10)
                                 .stroke(primaryColor, lineWidth: 5)
                         } else {
-                            EmptyView()
+                            RoundedRectangle(cornerRadius: 5, style: .circular)
+                                .foregroundColor(Color(UIColor.lightGray))
+                                .opacity(0.25)
                         }
                         HStack {
                             HStack {

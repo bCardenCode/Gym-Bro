@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct WorkoutNavLink: View {
+    @EnvironmentObject var manager: DataManager
     @State var border: Bool = true
     @State var workout: Workout
     @State var showRows: Bool = false
@@ -16,11 +17,13 @@ struct WorkoutNavLink: View {
     
     var body: some View {
         ZStack {
-            if border {
+            if manager.designSettings.border {
                 RoundedRectangle(cornerRadius: 10)
                     .stroke(primaryColor, lineWidth: 5)
             } else {
-                EmptyView()
+                RoundedRectangle(cornerRadius: 5, style: .circular)
+                    .foregroundColor(Color(UIColor.lightGray))
+                    .opacity(0.25)
             }
             HStack {
                 HStack {

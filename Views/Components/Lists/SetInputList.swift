@@ -17,10 +17,13 @@ struct SetInputList: View {
                 SetInputRow(set: $set)
             }
             HStack {
-                Button("Remove Set", role: .destructive) {
-                    sets.remove(at: sets.count - 1)
+                Button("Remove Set") {
+                    if sets.count > 0 {
+                        sets.remove(at: sets.count - 1)
+                    }
                 }
                 .buttonStyle(.borderedProminent)
+                .tint(sets.count == 0 ? .gray : .red)
                 Button("Add Set") {
                     sets.append(Set())
                 }

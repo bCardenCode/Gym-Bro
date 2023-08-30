@@ -22,7 +22,17 @@ struct AppHome: View {
                 Spacer()
             }
             .navigationTitle(appHomeTitle)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    NavigationLink(destination: SettingsPage()) {
+                        Image(systemName: "gearshape.fill")
+                            .foregroundColor(.blue)
+                    }
+                }
+                
+            }
         }
+        
         .environmentObject(manager)
     }
 }

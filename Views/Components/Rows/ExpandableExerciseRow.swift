@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ExpandableExerciseRow: View {
+    @EnvironmentObject var manager: DataManager
     @State var border: Bool = true
     @Binding var exercise: Exercise
     @State var width: RowWidth = .full
@@ -22,11 +23,14 @@ struct ExpandableExerciseRow: View {
                     showRows = !showRows
                 }, label: {
                     ZStack {
-                        if border {
+                        if manager.designSettings.border {
                             RoundedRectangle(cornerRadius: 10)
                                 .stroke(primaryColor, lineWidth: 5)
                         } else {
-                            EmptyView()
+                            RoundedRectangle(cornerRadius: 10, style: .circular)
+                                .foregroundColor(Color(UIColor.lightGray))
+                                .opacity(0.5)
+                            
                         }
                         HStack {
                             HStack {
@@ -53,6 +57,10 @@ struct ExpandableExerciseRow: View {
                 }
             )
             .buttonStyle(.plain)
+            if !border {
+                Divider()
+                    .frame(width: width.val)
+            }
             
             if showRows && input {
                 SetInputList(sets: $exercise.sets)
@@ -71,6 +79,6 @@ struct ExpandableExerciseRow_Previews: PreviewProvider {
     @State static var exercise = Exercise(sets: mockSets1, exercise: benchPress, rating: 9)
     
     static var previews: some View {
-        ExpandableExerciseRow(exercise: $exercise, input: true)
+        ExpandableExerciseRow(border: false, exercise: $exercise, input: true)
     }
 }

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SetInputRow: View {
+    @EnvironmentObject var manager: DataManager
     @Binding var set: Set
     @State var border: Bool = true
     @State var weight: Int?
@@ -17,11 +18,14 @@ struct SetInputRow: View {
     
     var body: some View {
         ZStack {
-            if border {
+            if manager.designSettings.border {
                 RoundedRectangle(cornerRadius: 10)
                     .stroke(secondaryColor, lineWidth: 4)
+               
             } else {
-                EmptyView()
+                RoundedRectangle(cornerRadius: 5, style: .circular)
+                    .foregroundColor(Color(UIColor.lightGray))
+                    .opacity(0.25)
             }
             HStack {
                 TextField("Weight", value: $weight, format: .number)

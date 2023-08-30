@@ -18,6 +18,8 @@
 		1846DF172A9669D5000E6862 /* SplitChoices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1846DF162A9669D5000E6862 /* SplitChoices.swift */; };
 		1877C44C2A9E9DEF002EECC5 /* SetInputRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1877C44B2A9E9DEF002EECC5 /* SetInputRow.swift */; };
 		1877C44E2A9EA6AE002EECC5 /* SetInputList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1877C44D2A9EA6AE002EECC5 /* SetInputList.swift */; };
+		1877C4522A9F7B83002EECC5 /* SettingsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1877C4512A9F7B83002EECC5 /* SettingsPage.swift */; };
+		1877C4542A9F7D27002EECC5 /* DesignSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1877C4532A9F7D27002EECC5 /* DesignSettings.swift */; };
 		18CBBB622A8ED3CA0075CF7E /* GymBroMainApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CBBB612A8ED3CA0075CF7E /* GymBroMainApp.swift */; };
 		18CBBB662A8ED3CC0075CF7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18CBBB652A8ED3CC0075CF7E /* Assets.xcassets */; };
 		18CBBB692A8ED3CC0075CF7E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18CBBB682A8ED3CC0075CF7E /* Preview Assets.xcassets */; };
@@ -46,6 +48,8 @@
 		1846DF162A9669D5000E6862 /* SplitChoices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitChoices.swift; sourceTree = "<group>"; };
 		1877C44B2A9E9DEF002EECC5 /* SetInputRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetInputRow.swift; sourceTree = "<group>"; };
 		1877C44D2A9EA6AE002EECC5 /* SetInputList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetInputList.swift; sourceTree = "<group>"; };
+		1877C4512A9F7B83002EECC5 /* SettingsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPage.swift; sourceTree = "<group>"; };
+		1877C4532A9F7D27002EECC5 /* DesignSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSettings.swift; sourceTree = "<group>"; };
 		18CBBB5E2A8ED3CA0075CF7E /* GymBroMain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GymBroMain.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18CBBB612A8ED3CA0075CF7E /* GymBroMainApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymBroMainApp.swift; sourceTree = "<group>"; };
 		18CBBB652A8ED3CC0075CF7E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -167,6 +171,7 @@
 				18CBBB772A8ED5180075CF7E /* Exercise.swift */,
 				18CBBB792A8ED5660075CF7E /* Workout.swift */,
 				18CBBBA12A9147C90075CF7E /* DataManager.swift */,
+				1877C4532A9F7D27002EECC5 /* DesignSettings.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -214,6 +219,7 @@
 				18CBBB9B2A8FFB330075CF7E /* ViewWorkoutsView.swift */,
 				1846DF0B2A955E52000E6862 /* ViewWorkoutPage.swift */,
 				1846DF112A9572F4000E6862 /* ViewExercisePage.swift */,
+				1877C4512A9F7B83002EECC5 /* SettingsPage.swift */,
 			);
 			path = Pages;
 			sourceTree = "<group>";
@@ -291,12 +297,14 @@
 				1828AEF52A9E9D210093F2D7 /* ExpandableSetInputRow.swift in Sources */,
 				18CBBBA22A9147C90075CF7E /* DataManager.swift in Sources */,
 				18CBBB782A8ED5180075CF7E /* Exercise.swift in Sources */,
+				1877C4522A9F7B83002EECC5 /* SettingsPage.swift in Sources */,
 				1828AEF32A9E76DD0093F2D7 /* BasicNavLinkLabel.swift in Sources */,
 				1828AEF12A9D5C340093F2D7 /* SummaryRowUse.swift in Sources */,
 				18CBBB7F2A8ED8080075CF7E /* Mock.swift in Sources */,
 				1828AEED2A9D445B0093F2D7 /* WorkoutNavLink.swift in Sources */,
 				1877C44C2A9E9DEF002EECC5 /* SetInputRow.swift in Sources */,
 				18CBBBA02A9144720075CF7E /* Strings.swift in Sources */,
+				1877C4542A9F7D27002EECC5 /* DesignSettings.swift in Sources */,
 				18CBBB962A8FE0DA0075CF7E /* AppHome.swift in Sources */,
 				18CBBB882A8EDDEF0075CF7E /* RowHeight.swift in Sources */,
 				1846DF122A9572F4000E6862 /* ViewExercisePage.swift in Sources */,

@@ -33,5 +33,10 @@ struct Exercise: Identifiable {
         self.exercise = name
     }
     
+    mutating func removeLastSet() {
+        if sets.count > 0 {
+            sets.remove(at: sets.count - 1)
+        }
+    }
     
 }

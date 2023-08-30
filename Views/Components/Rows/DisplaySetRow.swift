@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct DisplaySetRow: View {
+    @EnvironmentObject var manager: DataManager
     @State var set: Set
     @State var border: Bool = true
     var width: RowWidth = .full
@@ -15,12 +16,13 @@ struct DisplaySetRow: View {
     
     var body: some View {
         ZStack {
-            if border {
+            if manager.designSettings.border {
                 RoundedRectangle(cornerRadius: 10)
                     .stroke(primaryColor, lineWidth: 5)
             } else {
-                EmptyView()
-            }
+                RoundedRectangle(cornerRadius: 5, style: .circular)
+                    .foregroundColor(Color(UIColor.lightGray))
+                    .opacity(0.25)            }
             HStack {
                 Spacer()
                 Text("\(set.weight ?? -1)")
